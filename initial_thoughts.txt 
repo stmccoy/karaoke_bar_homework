@@ -1,0 +1,9 @@
+could make a room class that all rooms inherit from to allow you to make a toilet, a smoking area etc. 
+
+Any room with a bar creates a bar tab if person reaches zero then stops after a certain limit. 
+
+make a person class that people could inherit from based on their preference for music genre. Gender to help with toilets. Cash to help with bar tab. 
+
+make songs class that specific songs can inherit from, this will have a genre and name class as this will help with task. 
+
+person  can woo if genre is right and cheer if song and genre is right
