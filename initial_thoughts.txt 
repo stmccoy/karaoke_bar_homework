@@ -7,3 +7,20 @@ make a person class that people could inherit from based on their preference for
 make songs class that specific songs can inherit from, this will have a genre and name class as this will help with task. 
 
 person  can woo if genre is right and cheer if song and genre is right
+
+plan for tomorrow
+
+create a room class
+list of 3 genres and a None type (none type for toilets and check in etc)
+staff 
+room space
+check in will check room space and add to queue for room if full
+queue 
+
+
+create a song class 
+list of 3 genres
+5 songs per genre
+
+add song will check genres match room
+

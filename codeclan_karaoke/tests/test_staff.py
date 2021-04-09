@@ -15,19 +15,19 @@ class TestBouncer(unittest.TestCase):
     def test_bouncer_has_gender(self):
         self.assertEqual("Male", self.bouncer_1.gender)
 
-class TestBarStaff(unittest.TestCase):
+class TestKaraokeStaff(unittest.TestCase):
 
     def setUp(self):
-        self.bar_staff_1 = BarStaff("Kerry", 22, "Female")
+        self.karaoke_staff_1 = KaraokeStaff("Kerry", 22, "Female")
 
     def test_bar_staff_has_name(self):
-        self.assertEqual("Kerry", self.bar_staff_1.name)
+        self.assertEqual("Kerry", self.karaoke_staff_1.name)
     
     def test_bar_staff_has_age(self):
-        self.assertEqual(22, self.bar_staff_1.age)
+        self.assertEqual(22, self.karaoke_staff_1.age)
     
     def test_bar_staff_has_gender(self):
-        self.assertEqual("Female", self.bar_staff_1.gender)
+        self.assertEqual("Female", self.karaoke_staff_1.gender)
 
 class TestCheckInStaff(unittest.TestCase):
 

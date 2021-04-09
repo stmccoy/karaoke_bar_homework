@@ -5,7 +5,7 @@ class Bouncer(Person):
 
     pass
 
-class BarStaff(Person):
+class KaraokeStaff(Person):
 
     pass
 
