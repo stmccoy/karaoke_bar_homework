@@ -2,6 +2,7 @@ import unittest
 from classes.people.staff import *
 from classes.people.punter import Punter
 from classes.rooms.party_room import PartyRoom
+from classes.songs.song import Song
 
 class TestBouncer(unittest.TestCase):
 
@@ -30,6 +31,9 @@ class TestKaraokeStaff(unittest.TestCase):
 
     def setUp(self):
         self.karaoke_staff_1 = KaraokeStaff("Kerry", 22, "Female")
+        self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, 2, "Beverly", 50, "Female")
+        self.punter_2 = Punter("Pop", "Hit Me Baby One More Time", 1, 2, "Steve", 50, "Male")
+        self.song_fee = 2
 
     def test_karaoke_staff_has_name(self):
         self.assertEqual("Kerry", self.karaoke_staff_1.name)
@@ -39,6 +43,19 @@ class TestKaraokeStaff(unittest.TestCase):
     
     def test_karaoke_staff_has_gender(self):
         self.assertEqual("Female", self.karaoke_staff_1.gender)
+    
+    def test_karaoke_staff_take_song_request(self):
+        punter = self.punter_1
+        song_fee = self.song_fee      
+
+        self.assertEqual(True, self.karaoke_staff_1.accept_song_request(punter, song_fee))
+    
+    def test_karaoke_staff_refuse_song_request(self):
+        punter = self.punter_2 
+        song_fee = self.song_fee      
+
+        self.assertEqual(False, self.karaoke_staff_1.accept_song_request(punter, song_fee))
+        
 
 class TestCheckInStaff(unittest.TestCase):
 

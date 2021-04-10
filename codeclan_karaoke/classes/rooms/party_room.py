@@ -27,6 +27,11 @@ class PartyRoom(Room):
             Song("Rehab", "Rihanna", "RnB"),
             Song("Single Ladies", "Beyonce", "RnB")
         ]
+        self.song_playing = None
+
+    def play_song(self, song, punter, karaoke_staff, song_fee):
+        if punter.request_song(karaoke_staff, song, song_fee):
+            self.song_playing = song
 
 
 

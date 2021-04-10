@@ -1,4 +1,5 @@
 from classes.people.person import Person
+from classes.songs.song import Song
 #inherits from person class 
 
 class Punter(Person):
@@ -16,5 +17,12 @@ class Punter(Person):
     
     def pay_fee(self, fee:int):
         self.money -= fee
+    
+    def request_song(self, karaoke_staff, song: Song, song_fee: int):
+        if karaoke_staff.accept_song_request(self, song_fee):
+            self.money -= song_fee 
+            return True
+        return False
+        
         
     

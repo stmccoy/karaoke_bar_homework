@@ -11,7 +11,11 @@ class Bouncer(Person):
 
 class KaraokeStaff(Person):
 
-    pass
+    def accept_song_request(self, punter: Punter, song_fee: int):
+        if punter.money - song_fee > 0:
+            return True
+        else:
+            return False
 
 class CheckInStaff(Person):
 
