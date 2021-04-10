@@ -6,8 +6,8 @@ class Bouncer(Person):
 
     def check_id(self, punter: Punter):
         if punter.age >= 18:
-            return "On you go mate"
-        return "Sling your hook pal"
+            return True
+        return False
     
     def allow_in_room(self, room):
         if room.capacity == room.current_punter_total:
@@ -26,10 +26,10 @@ class CheckInStaff(Person):
 
     def take_entrance_fee(self, punter: Punter, entrance_fee: int):
         if (punter.money - entrance_fee) < 0:
-            return "Not enough money, sorry"
+            return False
         else:
             punter.pay_fee(entrance_fee)
-            return "Thank You"
+            return True
     
     def room_assign(self, punter: Punter, rooms_list: list):
         for room in rooms_list:

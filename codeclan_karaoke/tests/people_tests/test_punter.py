@@ -7,7 +7,6 @@ from classes.rooms.party_room import PartyRoom
 class TestPunter(unittest.TestCase):
 
     def setUp(self):
-
         self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, 2, "Beverly", 50, "Female")
         self.punter_2 = Punter("Pop", "Hit Me Baby One More Time", 1, 2, "Steve", 50, "Male")
         self.song_1 = Song("Hit Me Baby One More Time", "Britney Spears", "Pop")

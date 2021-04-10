@@ -4,11 +4,9 @@ from classes.songs.song import Song
 
 class PartyRoom(Room):
     #init that extends parent class init and adds own attributes
-    def __init__(self, genre: str,*args, **kwargs):
-        
+    def __init__(self, genre: str,*args, **kwargs):       
         #function that facilitates extention of init from parent class
         super(PartyRoom, self).__init__(*args, **kwargs)
-    
         self.genre = genre
         self.song_list = [
             Song("Gotta Get Thru This", "Daniel Beddingfield", "Pop"),

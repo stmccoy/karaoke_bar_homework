@@ -23,10 +23,10 @@ class TestBouncer(unittest.TestCase):
         self.assertEqual("Male", self.bouncer_1.gender)
     
     def test_bouncer_checks_id_and_admits(self):
-        self.assertEqual("On you go mate", self.bouncer_1.check_id(self.punter_1))
+        self.assertEqual(True, self.bouncer_1.check_id(self.punter_1))
     
     def test_bouncer_checks_id_and_rejects(self):
-        self.assertEqual("Sling your hook pal", self.bouncer_1.check_id(self.punter_2))
+        self.assertEqual(False, self.bouncer_1.check_id(self.punter_2))
     
     def test_bouncer_allow_room_change(self):
         room = self.party_room_1
@@ -89,10 +89,10 @@ class TestCheckInStaff(unittest.TestCase):
         self.assertEqual("Female", self.check_in_staff_1.gender)
     
     def test_pay_entrance_fee_not_enough_money(self):
-        self.assertEqual("Not enough money, sorry", self.check_in_staff_1.take_entrance_fee(self.punter_2, 5))
+        self.assertEqual(False, self.check_in_staff_1.take_entrance_fee(self.punter_2, 5))
     
     def test_pay_entrance_fee_enough_money(self):
-        self.assertEqual("Thank You", self.check_in_staff_1.take_entrance_fee(self.punter_1, 5))
+        self.assertEqual(True, self.check_in_staff_1.take_entrance_fee(self.punter_1, 5))
         self.assertEqual(55, self.punter_1.money)
     
     def test_admission_to_room_success(self):

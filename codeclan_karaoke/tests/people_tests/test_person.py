@@ -4,7 +4,6 @@ from classes.people.person import Person
 class TestPerson(unittest.TestCase):
 
     def setUp(self):
-
         self.person_1 = Person("Fred", 20, "Male")
         self.person_2 = Person("Holly", 40, "Female")
     
