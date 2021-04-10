@@ -31,5 +31,17 @@ punter to show id to bouncer
 punter to pay fee to checkin staff
 checkin staff to assign customer to room or queue
 
+checkout guests from rooms
+add songs to rooms
+if guest tab for karaoke turns gets too much make pay or kickout
+
+add song = guests pay for song
+
+needs a request song from guest, play song in room, take fee and check bar tab by karaoke staff. Song comes from song list in party room class, check have song. 
+
+checkout
+customer requests leave
+checkout staff check bar tab, ring police if not paid 
+
 
 
