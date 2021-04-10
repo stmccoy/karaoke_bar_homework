@@ -5,6 +5,9 @@ import unittest
 from tests.test_person import TestPerson
 from tests.test_punter import TestPunter
 from tests.test_staff import *
+from tests.test_room import TestRoom
+from tests.test_non_party_rooms import *
+from tests.test_party_room import TestPartyRoom
 
 
 if __name__ == '__main__':
