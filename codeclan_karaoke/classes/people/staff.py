@@ -22,7 +22,13 @@ class CheckInStaff(Person):
             punter.pay_fee(entrance_fee)
             return "Thank You"
     
-    def room_assign(self, punter: Punter, room_list: list):
-        pass
+    def room_assign(self, punter: Punter, rooms_list: list):
+        for room in rooms_list:
+            if punter.fave_genre == room.genre:
+                if room.current_punter_total == room.capacity:
+                    room.queue.append(punter)
+                else:
+                    room.current_punter_total += 1
+                    break
 
         

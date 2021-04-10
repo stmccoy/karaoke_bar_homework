@@ -46,6 +46,11 @@ class TestCheckInStaff(unittest.TestCase):
         self.check_in_staff_1 = CheckInStaff("Kirsty", 35, "Female")
         self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, 2, "Beverly", 50, "Female")
         self.punter_2 = Punter("Rock", "We Will Rock You", 2, 2, "Darren", 17, "Male")
+        self.punter_3 = Punter("RnB", "Tipsy", 30, 2, "Karl", 35, "Male")
+        self.party_room_1 = PartyRoom("Rock",[], [self.check_in_staff_1], 30, 10)
+        self.party_room_2 = PartyRoom("Pop", [], [self.check_in_staff_1], 30, 10)
+        self.party_room_3 = PartyRoom("RnB", [], [self.check_in_staff_1], 30, 30)
+        self.party_rooms_list = [self.party_room_1, self.party_room_2, self.party_room_3]
 
     def test_check_in_staff_has_name(self):
         self.assertEqual("Kirsty", self.check_in_staff_1.name)
@@ -62,6 +67,15 @@ class TestCheckInStaff(unittest.TestCase):
     def test_pay_entrance_fee_enough_money(self):
         self.assertEqual("Thank You", self.check_in_staff_1.take_entrance_fee(self.punter_1, 5))
         self.assertEqual(55, self.punter_1.money)
+    
+    def test_admission_to_room_success(self):
+        self.check_in_staff_1.room_assign(self.punter_1, self.party_rooms_list)
+        self.assertEqual(11, self.party_room_2.current_punter_total)
+    
+    def test_admission_to_room_full(self):
+        self.check_in_staff_1.room_assign(self.punter_3, self.party_rooms_list)
+        self.assertEqual(30, self.party_room_3.current_punter_total)
+        self.assertEqual(1, len(self.party_room_3.queue))
     
 
     
