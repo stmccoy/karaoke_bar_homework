@@ -14,3 +14,7 @@ class Punter(Person):
         self.money = money
         self.honesty = honesty
     
+    def pay_fee(self, fee:int):
+        self.money -= fee
+        
+    

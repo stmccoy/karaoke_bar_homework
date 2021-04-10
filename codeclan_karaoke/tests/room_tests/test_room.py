@@ -5,7 +5,7 @@ class TestRoom(unittest.TestCase):
 
     def setUp(self):
 
-        self.room_1 = Room([], [], 30)
+        self.room_1 = Room([], [], 30, 20)
 
     def test_room_has_queue(self):
 

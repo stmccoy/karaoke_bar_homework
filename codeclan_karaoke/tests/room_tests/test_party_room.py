@@ -5,7 +5,7 @@ class TestPartyRoom(unittest.TestCase):
 
     def setUp(self):
 
-        self.party_room_1 = PartyRoom("Rock", [], [], 30)
+        self.party_room_1 = PartyRoom("Rock", [], [], 30, 20)
     
     def test_party_room_has_genre(self):
         self.assertEqual("Rock", self.party_room_1.genre)

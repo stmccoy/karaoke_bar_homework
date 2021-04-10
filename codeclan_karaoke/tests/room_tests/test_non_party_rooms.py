@@ -5,7 +5,7 @@ class TestToilet(unittest.TestCase):
 
     def setUp(self):
 
-        self.toilet_1 = Toilet([], [], 30)
+        self.toilet_1 = Toilet([], [], 5, 2)
 
     def test_toilet_has_queue(self):
 
@@ -17,13 +17,13 @@ class TestToilet(unittest.TestCase):
     
     def test_toilet_has_capacity(self):
 
-        self.assertEqual(30, self.toilet_1.capacity)
+        self.assertEqual(5, self.toilet_1.capacity)
 
 class TestSmokingArea(unittest.TestCase):
 
     def setUp(self):
 
-        self.smoking_area_1 = SmokingArea([], [], 30)
+        self.smoking_area_1 = SmokingArea([], [], 15, 10)
 
     def test_smoking_area_has_queue(self):
 
@@ -35,13 +35,13 @@ class TestSmokingArea(unittest.TestCase):
     
     def test_smoking_area_has_capacity(self):
 
-        self.assertEqual(30, self.smoking_area_1.capacity)
+        self.assertEqual(15, self.smoking_area_1.capacity)
 
 class TestCheckInRoom(unittest.TestCase):
 
     def setUp(self):
 
-        self.check_in_room_1 = CheckInRoom(5, [], [], 30)
+        self.check_in_room_1 = CheckInRoom(5, [], [], 10, 5)
     
     def test_check_in_room_has_fee(self):
         self.assertEqual(5, self.check_in_room_1.entrance_fee)
@@ -56,4 +56,4 @@ class TestCheckInRoom(unittest.TestCase):
     
     def test_check_in_room_has_capacity(self):
 
-        self.assertEqual(30, self.check_in_room_1.capacity)
+        self.assertEqual(10, self.check_in_room_1.capacity)

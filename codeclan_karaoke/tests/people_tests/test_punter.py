@@ -27,3 +27,7 @@ class TestPunter(unittest.TestCase):
     
     def test_punter_has_honesty(self):
         self.assertEqual(2, self.punter_1.honesty)
+    
+    def test_punter_pay_fee(self):
+        self.punter_1.pay_fee(5)
+        self.assertEqual(55, self.punter_1.money)
