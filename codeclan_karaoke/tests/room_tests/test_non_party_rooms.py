@@ -1,5 +1,5 @@
 import unittest
-from classes.non_party_rooms import *
+from classes.rooms.non_party_rooms import *
 
 class TestToilet(unittest.TestCase):
 

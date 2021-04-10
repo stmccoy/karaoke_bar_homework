@@ -1,5 +1,5 @@
 import unittest
-from classes.room import Room
+from classes.rooms.room import Room
 
 class TestRoom(unittest.TestCase):
 

@@ -1,4 +1,4 @@
-from classes.person import Person
+from classes.people.person import Person
 #inherits from person class 
 
 class Punter(Person):

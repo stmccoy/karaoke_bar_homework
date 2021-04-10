@@ -1,4 +1,4 @@
-from classes.room import Room
+from classes.rooms.room import Room
 #class inherits from room class
 
 class PartyRoom(Room):

@@ -1,5 +1,5 @@
 import unittest
-from classes.party_room import PartyRoom
+from classes.rooms.party_room import PartyRoom
 
 class TestPartyRoom(unittest.TestCase):
 

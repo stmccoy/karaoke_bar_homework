@@ -1,4 +1,4 @@
-from classes.room import Room
+from classes.rooms.room import Room
 #classes inherit from room class
 
 class Toilet(Room):

@@ -1,5 +1,5 @@
 import unittest
-from classes.staff import *
+from classes.people.staff import *
 
 class TestBouncer(unittest.TestCase):
 

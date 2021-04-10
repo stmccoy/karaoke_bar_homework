@@ -1,4 +1,4 @@
-from classes.person import Person
+from classes.people.person import Person
 #all classes inherit from person class 
 
 class Bouncer(Person):

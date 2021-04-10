@@ -1,5 +1,5 @@
 import unittest
-from classes.punter import Punter
+from classes.people.punter import Punter
 
 class TestPunter(unittest.TestCase):
 
