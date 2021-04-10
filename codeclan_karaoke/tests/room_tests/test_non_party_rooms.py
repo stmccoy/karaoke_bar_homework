@@ -7,7 +7,8 @@ from classes.rooms.party_room import PartyRoom
 class TestToilet(unittest.TestCase):
 
     def setUp(self):
-        self.toilet_1 = Toilet([], [], 5, 2)
+        self.toilet_1 = Toilet("Female", [], [], 5, 2)
+        self.toilet_2 = Toilet("Male", [], [], 5, 2)
 
     def test_toilet_has_queue(self):
         self.assertEqual(0, len(self.toilet_1.queue))
@@ -17,15 +18,27 @@ class TestToilet(unittest.TestCase):
     
     def test_toilet_has_capacity(self):
         self.assertEqual(5, self.toilet_1.capacity)
+    
+    def test_toilet_has_gender(self):
+        self.assertEqual("Female", self.toilet_1.gender)
+
+    def test_toilet_has_gender(self):
+        self.assertEqual("Male", self.toilet_2.gender)
+    
+    def test_confirm_type(self):
+        self.assertEqual(True, isinstance(self.toilet_1, Toilet))
 
 class TestSmokingArea(unittest.TestCase):
 
     def setUp(self):
         self.smoking_area_1 = SmokingArea([], [], 15, 10)
+
     def test_smoking_area_has_queue(self):
-        self.assertEqual(0, len(self.smoking_area_1.queue))    
+        self.assertEqual(0, len(self.smoking_area_1.queue)) 
+
     def test_smoking_area_has_staff(self):
-        self.assertEqual(0, len(self.smoking_area_1.staff))    
+        self.assertEqual(0, len(self.smoking_area_1.staff)) 
+
     def test_smoking_area_has_capacity(self):
         self.assertEqual(15, self.smoking_area_1.capacity)
 

@@ -23,7 +23,7 @@ class Punter(Person):
         return False
     
     def change_room(self, room_from, room_to, bouncer):
-        if bouncer.allow_in_room(room_to):
+        if bouncer.allow_in_room(room_to, self):
             room_from.current_punter_total -= 1
             room_to.current_punter_total += 1
         else:

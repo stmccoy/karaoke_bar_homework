@@ -4,7 +4,11 @@ from classes.rooms.room import Room
 #classes inherit from room class
 
 class Toilet(Room):
-    pass
+    #init that extends parent class init and adds own attributes
+    def __init__(self, gender, *args, **kwargs):       
+        #function that facilitates extention of init from parent class
+        super(Toilet, self).__init__(*args, **kwargs)
+        self.gender = gender
 
 class SmokingArea(Room):
     pass

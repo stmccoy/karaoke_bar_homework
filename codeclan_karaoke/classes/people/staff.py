@@ -9,9 +9,13 @@ class Bouncer(Person):
             return True
         return False
     
-    def allow_in_room(self, room):
+    def allow_in_room(self, room, punter=None):
         if room.capacity == room.current_punter_total:
             return False
+        # elif isinstance(room, Toilet):
+        #     if punter.gender == room.gender:
+        #         return True
+        #     return False
         return True
 
 class KaraokeStaff(Person):
