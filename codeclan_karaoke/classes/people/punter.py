@@ -23,6 +23,19 @@ class Punter(Person):
             self.money -= song_fee 
             return True
         return False
+    
+    def change_room(self, room_from, room_to, bouncer):
+        if bouncer.allow_in_room(room_to):
+            room_from.current_punter_total -= 1
+            room_to.current_punter_total += 1
+        else:
+            room_from.current_punter_total -= 1
+            room_to.queue.append(self)
+    
+    def go_home(self, room_in):
+        room_in.current_punter_total -= 1
+
+
         
         
     

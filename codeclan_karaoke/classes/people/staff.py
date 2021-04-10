@@ -8,6 +8,11 @@ class Bouncer(Person):
         if punter.age >= 18:
             return "On you go mate"
         return "Sling your hook pal"
+    
+    def allow_in_room(self, room):
+        if room.capacity == room.current_punter_total:
+            return False
+        return True
 
 class KaraokeStaff(Person):
 
@@ -34,5 +39,7 @@ class CheckInStaff(Person):
                 else:
                     room.current_punter_total += 1
                     break
+    
+    
 
         

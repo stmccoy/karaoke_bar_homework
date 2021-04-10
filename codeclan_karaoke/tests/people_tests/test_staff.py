@@ -10,6 +10,8 @@ class TestBouncer(unittest.TestCase):
         self.bouncer_1 = Bouncer("Paul", 40, "Male")
         self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, 2, "Beverly", 50, "Female")
         self.punter_2 = Punter("Rock", "We Will Rock You", 2, 2, "Darren", 17, "Male")
+        self.party_room_1 = PartyRoom("Rock",[], [], 30, 10)
+        self.party_room_2 = PartyRoom("RnB", [], [], 30, 30)
 
     def test_bouncer_has_name(self):
         self.assertEqual("Paul", self.bouncer_1.name)
@@ -25,6 +27,14 @@ class TestBouncer(unittest.TestCase):
     
     def test_bouncer_checks_id_and_rejects(self):
         self.assertEqual("Sling your hook pal", self.bouncer_1.check_id(self.punter_2))
+    
+    def test_bouncer_allow_room_change(self):
+        room = self.party_room_1
+        self.assertEqual(True, self.bouncer_1.allow_in_room(room))
+    
+    def test_bouncer_reject_room_change(self):
+        room = self.party_room_2
+        self.assertEqual(False, self.bouncer_1.allow_in_room(room))
     
 
 class TestKaraokeStaff(unittest.TestCase):
