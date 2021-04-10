@@ -12,6 +12,9 @@ class TestBouncer(unittest.TestCase):
         self.punter_2 = Punter("Rock", "We Will Rock You", 2, 2, "Darren", 17, "Male")
         self.party_room_1 = PartyRoom("Rock",[], [], 30, 10)
         self.party_room_2 = PartyRoom("RnB", [], [], 30, 30)
+        self.toilet_1 = Toilet("Female", [], [], 5, 2)
+        self.toilet_2 = Toilet("Male", [], [], 5, 2)
+        self.toilet_3 = Toilet("Male", [], [], 5, 5)
 
     def test_bouncer_has_name(self):
         self.assertEqual("Paul", self.bouncer_1.name)
@@ -30,13 +33,29 @@ class TestBouncer(unittest.TestCase):
     
     def test_bouncer_allow_room_change(self):
         room = self.party_room_1
-        self.assertEqual(True, self.bouncer_1.allow_in_room(room))
+        punter = self.punter_1
+        self.assertEqual(True, self.bouncer_1.allow_in_room(room, punter))
+    
+    def test_bouncer_allow_room_change_toilet(self):
+        room = self.toilet_1
+        punter = self.punter_1
+        self.assertEqual(True, self.bouncer_1.allow_in_room(room, punter))
     
     def test_bouncer_reject_room_change(self):
         room = self.party_room_2
-        self.assertEqual(False, self.bouncer_1.allow_in_room(room))
+        punter = self.punter_1
+        self.assertEqual(False, self.bouncer_1.allow_in_room(room, punter))
     
-
+    def test_bouncer_reject_room_change_toilet_gender(self):
+        room = self.toilet_2
+        punter = self.punter_1
+        self.assertEqual(False, self.bouncer_1.allow_in_room(room, punter))
+    
+    def test_bouncer_reject_room_change_toilet_capacity(self):
+        room = self.toilet_2
+        punter = self.punter_1
+        self.assertEqual(False, self.bouncer_1.allow_in_room(room, punter))
+    
 class TestKaraokeStaff(unittest.TestCase):
 
     def setUp(self):

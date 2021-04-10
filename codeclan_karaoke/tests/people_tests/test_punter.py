@@ -15,6 +15,9 @@ class TestPunter(unittest.TestCase):
         self.party_room_1 = PartyRoom("Rock",[], [], 30, 10)
         self.party_room_2 = PartyRoom("Pop", [], [], 30, 10)
         self.party_room_3 = PartyRoom("RnB", [], [], 30, 30)
+        self.toilet_1 = Toilet("Female", [], [], 5, 2)
+        self.toilet_2 = Toilet("Male", [], [], 5, 2)
+        self.toilet_3 = Toilet("Male", [], [], 5, 5)
 
     def test_punter_has_name(self):
         self.assertEqual("Beverly", self.punter_1.name)
@@ -57,6 +60,15 @@ class TestPunter(unittest.TestCase):
         self.assertEqual(9, room_1.current_punter_total)
         self.assertEqual(11, room_2.current_punter_total)
     
+    def test_punter_change_room_success_toilet(self):
+        room_1 = self.party_room_1
+        female_toilet = self.toilet_1
+        bouncer = self.bouncer_1
+        female_punter = self.punter_1
+        female_punter.change_room(room_1, female_toilet, bouncer)
+        self.assertEqual(9, room_1.current_punter_total)
+        self.assertEqual(3, female_toilet.current_punter_total)
+    
     def test_punter_change_room_fail(self):
         room_1 = self.party_room_1
         room_2 = self.party_room_3
@@ -65,6 +77,25 @@ class TestPunter(unittest.TestCase):
         self.assertEqual(9, room_1.current_punter_total)
         self.assertEqual(30, room_2.current_punter_total)
         self.assertEqual(1, len(room_2.queue))
+    
+    def test_punter_change_room_gender_fail_toilet(self):
+        room_1 = self.party_room_1
+        male_toilet = self.toilet_2
+        bouncer = self.bouncer_1
+        female_punter = self.punter_1
+        female_punter.change_room(room_1, male_toilet, bouncer)
+        self.assertEqual(10, room_1.current_punter_total)
+        self.assertEqual(2, male_toilet.current_punter_total)
+    
+    def test_punter_change_room_capacity_fail_toilet(self):
+        room_1 = self.party_room_1
+        full_toilet = self.toilet_3
+        bouncer = self.bouncer_1
+        male_punter = self.punter_2
+        male_punter.change_room(room_1, full_toilet, bouncer)
+        self.assertEqual(9, room_1.current_punter_total)
+        self.assertEqual(5, full_toilet.current_punter_total)
+        self.assertEqual(1, len(full_toilet.queue))
     
     def test_punter_go_home(self):
         room = self.party_room_1

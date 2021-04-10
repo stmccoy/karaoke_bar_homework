@@ -1,5 +1,6 @@
 from classes.people.person import Person
 from classes.songs.song import Song
+from classes.rooms.non_party_rooms import Toilet
 #inherits from person class 
 
 class Punter(Person):
@@ -26,6 +27,12 @@ class Punter(Person):
         if bouncer.allow_in_room(room_to, self):
             room_from.current_punter_total -= 1
             room_to.current_punter_total += 1
+        elif isinstance(room_to, Toilet):
+            if room_to.gender != self.gender:
+                return False
+            elif room_to.capacity == room_to.current_punter_total:
+                room_from.current_punter_total -= 1
+                room_to.queue.append(self)
         else:
             room_from.current_punter_total -= 1
             room_to.queue.append(self)

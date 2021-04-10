@@ -1,5 +1,5 @@
-from classes.people.staff import *
-from classes.people.punter import Punter
+# from classes.people.staff import *
+# from classes.people.punter import Punter
 from classes.rooms.room import Room
 #classes inherit from room class
 
@@ -20,7 +20,7 @@ class CheckInRoom(Room):
         super(CheckInRoom, self).__init__(*args, **kwargs)
         self.entrance_fee = entrance_fee
     
-    def admit_punter(self, punter: Punter, bouncer: Bouncer, check_in_staff : CheckInStaff, entrance_fee: int, party_rooms_list: list):
+    def admit_punter(self, punter, bouncer, check_in_staff, entrance_fee: int, party_rooms_list: list):
         if not bouncer.check_id(punter):
             return bouncer.check_id(punter)
         else:

@@ -1,5 +1,6 @@
 from classes.people.person import Person
 from classes.people.punter import Punter
+from classes.rooms.non_party_rooms import Toilet 
 #all classes inherit from person class 
 
 class Bouncer(Person):
@@ -9,13 +10,13 @@ class Bouncer(Person):
             return True
         return False
     
-    def allow_in_room(self, room, punter=None):
-        if room.capacity == room.current_punter_total:
+    def allow_in_room(self, room, punter):
+        if isinstance(room, Toilet):
+            if punter.gender == room.gender and room.capacity != room.current_punter_total:
+                return True
             return False
-        # elif isinstance(room, Toilet):
-        #     if punter.gender == room.gender:
-        #         return True
-        #     return False
+        elif room.capacity == room.current_punter_total:
+            return False
         return True
 
 class KaraokeStaff(Person):
