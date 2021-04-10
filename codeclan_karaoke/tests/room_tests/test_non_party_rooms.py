@@ -1,5 +1,8 @@
 import unittest
 from classes.rooms.non_party_rooms import *
+from classes.people.staff import *
+from classes.people.punter import Punter
+from classes.rooms.party_room import PartyRoom
 
 class TestToilet(unittest.TestCase):
 
@@ -41,19 +44,64 @@ class TestCheckInRoom(unittest.TestCase):
 
     def setUp(self):
 
-        self.check_in_room_1 = CheckInRoom(5, [], [], 10, 5)
+        self.entrance_fee = 5
+        self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, 2, "Beverly", 17, "Female")
+        self.punter_2 = Punter("Rock", "American Idiot", 3, 2, "Beverly", 20, "Female")
+        self.punter_3 = Punter("RnB", "Tipsy", 3, 2, "Craig", 20, "Male")
+        self.check_in_staff_1 = CheckInStaff("Kirsty", 35, "Female")
+        self.bouncer_1 = Bouncer("Paul", 40, "Male")
+        self.check_in_room_1 = CheckInRoom(5, [self.punter_1, self.punter_2, self.punter_3], [self.check_in_staff_1, self.bouncer_1], 10, 5)
+
+        self.party_room_1 = PartyRoom("Rock",[], [self.check_in_staff_1], 30, 10)
+        self.party_room_2 = PartyRoom("Pop", [], [self.check_in_staff_1], 30, 10)
+        self.party_room_3 = PartyRoom("RnB", [], [self.check_in_staff_1], 30, 30)
+        
     
     def test_check_in_room_has_fee(self):
         self.assertEqual(5, self.check_in_room_1.entrance_fee)
 
     def test_check_in_room_has_queue(self):
 
-        self.assertEqual(0, len(self.check_in_room_1.queue))
+        self.assertEqual(3, len(self.check_in_room_1.queue))
     
     def test_check_in_room_has_staff(self):
 
-        self.assertEqual(0, len(self.check_in_room_1.staff))
+        self.assertEqual(2, len(self.check_in_room_1.staff))
     
     def test_check_in_room_has_capacity(self):
 
         self.assertEqual(10, self.check_in_room_1.capacity)
+    
+    def test_admission_process_id_fail(self):
+        entrance_fee = self.entrance_fee
+        punter = self.check_in_room_1.queue[0]
+        check_in_staff = self.check_in_room_1.staff[0]
+        bouncer = self.check_in_room_1.staff[1]
+
+        party_rooms_list = [self.party_room_1, self.party_room_2, self.party_room_3]
+
+        self.assertEqual("Sling your hook pal", self.check_in_room_1.admit_punter(punter, bouncer, check_in_staff, entrance_fee, party_rooms_list))
+    
+    def test_admission_process_entrance_fee_fail(self):
+        punter = self.check_in_room_1.queue[1]
+        check_in_staff = self.check_in_room_1.staff[0]
+        bouncer = self.check_in_room_1.staff[1]
+        entrance_fee = self.entrance_fee
+
+        party_rooms_list = [self.party_room_1, self.party_room_2, self.party_room_3]
+
+        self.assertEqual("Not enough money, sorry", self.check_in_room_1.admit_punter(punter, bouncer, check_in_staff, entrance_fee, party_rooms_list))
+    
+    def test_admission_process_sucess(self):
+        punter = self.check_in_room_1.queue[2]
+        check_in_staff = self.check_in_room_1.staff[0]
+        bouncer = self.check_in_room_1.staff[1]
+        entrance_fee = self.entrance_fee
+
+        party_rooms_list = [self.party_room_1, self.party_room_2, self.party_room_3]
+
+        self.check_in_room_1.admit_punter(punter, bouncer, check_in_staff, entrance_fee, party_rooms_list)
+
+        self.assertEqual(0, len(party_rooms_list[2].queue))
+
+
