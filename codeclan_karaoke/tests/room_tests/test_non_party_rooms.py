@@ -93,6 +93,14 @@ class TestCheckInRoom(unittest.TestCase):
         party_rooms_list = [self.party_room_1, self.party_room_2, self.party_room_3]
         self.assertEqual(False, self.check_in_room_1.admit_punter(punter, bouncer, check_in_staff, entrance_fee, party_rooms_list))
     
+    def test_admission_process_no_favourite_genre_match_between_punter_and_rooms(self):
+        punter = self.check_in_room_1.queue[0]
+        check_in_staff = self.check_in_room_1.staff[0]
+        bouncer = self.check_in_room_1.staff[1]
+        entrance_fee = self.check_in_room_1.entrance_fee
+        party_rooms_list = [self.party_room_1, self.party_room_3]
+        self.assertEqual(False, self.check_in_room_1.admit_punter(punter, bouncer, check_in_staff, entrance_fee, party_rooms_list))
+
     def test_admission_process_sucess(self):
         punter = self.check_in_room_1.queue[2]
         check_in_staff = self.check_in_room_1.staff[0]

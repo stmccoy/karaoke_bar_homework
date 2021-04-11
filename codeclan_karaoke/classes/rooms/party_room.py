@@ -10,6 +10,7 @@ class PartyRoom(Room):
         self.song_playing = None
 
     def play_song(self, song_object, punter, karaoke_staff, song_fee):
+        #punter method for requesting a song that contains a karaoke staff method for checking punter has funds to request a song. Method will subtract fee from punter money attribute. 
         if punter.request_song(karaoke_staff, song_object, song_fee):
             self.song_playing = song_object
 

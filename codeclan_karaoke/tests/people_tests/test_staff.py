@@ -97,6 +97,7 @@ class TestCheckInStaff(unittest.TestCase):
         self.party_room_2 = PartyRoom("Pop", [], [self.check_in_staff_1], 30, 10)
         self.party_room_3 = PartyRoom("RnB", [], [self.check_in_staff_1], 30, 30)
         self.party_rooms_list = [self.party_room_1, self.party_room_2, self.party_room_3]
+        self.party_rooms_list_2 = [self.party_room_1, self.party_room_2]
 
     def test_check_in_staff_has_name(self):
         self.assertEqual("Kirsty", self.check_in_staff_1.name)
@@ -122,6 +123,11 @@ class TestCheckInStaff(unittest.TestCase):
         self.check_in_staff_1.room_assign(self.punter_3, self.party_rooms_list)
         self.assertEqual(30, self.party_room_3.current_punter_total)
         self.assertEqual(1, len(self.party_room_3.queue))
+    
+    #passed test a party room list without punter's favourite genre
+    def test_admission_to_room_not_punter_favourite_genre(self):
+        self.assertEqual(False, self.check_in_staff_1.room_assign(self.punter_3, self.party_rooms_list_2))
+        
     
 
     
