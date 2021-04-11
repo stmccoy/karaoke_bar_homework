@@ -10,8 +10,8 @@ class TestPartyRoom(unittest.TestCase):
     def setUp(self):
         self.party_room_1 = PartyRoom("Rock", [], [], 30, 20)
         self.song_1 = Song("Hit Me Baby One More Time", "Britney Spears", "Pop")
-        self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, 2, "Beverly", 50, "Female")
-        self.punter_2 = Punter("Pop", "Hit Me Baby One More Time", 1, 2, "Steve", 50, "Male")
+        self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, "Beverly", 50, "Female")
+        self.punter_2 = Punter("Pop", "Hit Me Baby One More Time", 1, "Steve", 50, "Male")
         self.karaoke_staff_1 = KaraokeStaff("Kerry", 22, "Female")
         self.song_fee = 2
     

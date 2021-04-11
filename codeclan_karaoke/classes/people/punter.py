@@ -6,13 +6,12 @@ from classes.rooms.non_party_rooms import Toilet
 class Punter(Person):
 
 #init that extends parent class init and adds own attributes
-    def __init__(self, fave_genre: str, fave_song: str, money: float, honesty: int, *args, **kwargs):        
+    def __init__(self, fave_genre: str, fave_song: str, money: float, *args, **kwargs):        
         #function that facilitates extention of init from parent class
         super(Punter, self).__init__(*args, **kwargs)
         self.fave_genre = fave_genre
         self.fave_song = fave_song
         self.money = money
-        self.honesty = honesty
     
     def pay_fee(self, fee:int):
         self.money -= fee

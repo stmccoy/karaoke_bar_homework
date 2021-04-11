@@ -7,8 +7,8 @@ from classes.rooms.party_room import PartyRoom
 class TestPunter(unittest.TestCase):
 
     def setUp(self):
-        self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, 2, "Beverly", 50, "Female")
-        self.punter_2 = Punter("Pop", "Hit Me Baby One More Time", 1, 2, "Steve", 50, "Male")
+        self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, "Beverly", 50, "Female")
+        self.punter_2 = Punter("Pop", "Hit Me Baby One More Time", 1, "Steve", 50, "Male")
         self.song_1 = Song("Hit Me Baby One More Time", "Britney Spears", "Pop")
         self.karaoke_staff_1 = KaraokeStaff("Kerry", 22, "Female")
         self.bouncer_1 = Bouncer("Paul", 40, "Male")
@@ -36,9 +36,6 @@ class TestPunter(unittest.TestCase):
     
     def test_punter_has_money(self):
         self.assertEqual(60, self.punter_1.money)
-    
-    def test_punter_has_honesty(self):
-        self.assertEqual(2, self.punter_1.honesty)
     
     def test_punter_pay_fee(self):
         self.punter_1.pay_fee(5)

@@ -46,9 +46,9 @@ class TestCheckInRoom(unittest.TestCase):
 
     def setUp(self):
         self.entrance_fee = 5
-        self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, 2, "Beverly", 17, "Female")
-        self.punter_2 = Punter("Rock", "American Idiot", 3, 2, "Beverly", 20, "Female")
-        self.punter_3 = Punter("RnB", "Tipsy", 3, 2, "Craig", 20, "Male")
+        self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, "Beverly", 17, "Female")
+        self.punter_2 = Punter("Rock", "American Idiot", 3, "Beverly", 20, "Female")
+        self.punter_3 = Punter("RnB", "Tipsy", 3, "Craig", 20, "Male")
         self.check_in_staff_1 = CheckInStaff("Kirsty", 35, "Female")
         self.bouncer_1 = Bouncer("Paul", 40, "Male")
         self.check_in_room_1 = CheckInRoom(5, [self.punter_1, self.punter_2, self.punter_3], [self.check_in_staff_1, self.bouncer_1], 10, 5)

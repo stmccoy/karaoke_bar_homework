@@ -8,8 +8,8 @@ class TestBouncer(unittest.TestCase):
 
     def setUp(self):
         self.bouncer_1 = Bouncer("Paul", 40, "Male")
-        self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, 2, "Beverly", 50, "Female")
-        self.punter_2 = Punter("Rock", "We Will Rock You", 2, 2, "Darren", 17, "Male")
+        self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, "Beverly", 50, "Female")
+        self.punter_2 = Punter("Rock", "We Will Rock You", 2, "Darren", 17, "Male")
         self.party_room_1 = PartyRoom("Rock",[], [], 30, 10)
         self.party_room_2 = PartyRoom("RnB", [], [], 30, 30)
         self.toilet_1 = Toilet("Female", [], [], 5, 2)
@@ -60,8 +60,8 @@ class TestKaraokeStaff(unittest.TestCase):
 
     def setUp(self):
         self.karaoke_staff_1 = KaraokeStaff("Kerry", 22, "Female")
-        self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, 2, "Beverly", 50, "Female")
-        self.punter_2 = Punter("Pop", "Hit Me Baby One More Time", 1, 2, "Steve", 50, "Male")
+        self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, "Beverly", 50, "Female")
+        self.punter_2 = Punter("Pop", "Hit Me Baby One More Time", 1, "Steve", 50, "Male")
         self.song_fee = 2
 
     def test_karaoke_staff_has_name(self):
@@ -90,9 +90,9 @@ class TestCheckInStaff(unittest.TestCase):
 
     def setUp(self):
         self.check_in_staff_1 = CheckInStaff("Kirsty", 35, "Female")
-        self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, 2, "Beverly", 50, "Female")
-        self.punter_2 = Punter("Rock", "We Will Rock You", 2, 2, "Darren", 17, "Male")
-        self.punter_3 = Punter("RnB", "Tipsy", 30, 2, "Karl", 35, "Male")
+        self.punter_1 = Punter("Pop", "Hit Me Baby One More Time", 60, "Beverly", 50, "Female")
+        self.punter_2 = Punter("Rock", "We Will Rock You", 2, "Darren", 17, "Male")
+        self.punter_3 = Punter("RnB", "Tipsy", 30, "Karl", 35, "Male")
         self.party_room_1 = PartyRoom("Rock",[], [self.check_in_staff_1], 30, 10)
         self.party_room_2 = PartyRoom("Pop", [], [self.check_in_staff_1], 30, 10)
         self.party_room_3 = PartyRoom("RnB", [], [self.check_in_staff_1], 30, 30)
