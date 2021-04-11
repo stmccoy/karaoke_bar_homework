@@ -35,8 +35,13 @@ class Punter(Person):
             room__object_from.current_punter_total -= 1
             room_object_to.queue.append(self)
     
-    def go_home(self, room_in):
-        room_in.current_punter_total -= 1
+    def go_home(self, room_in_object):
+        room_in_object.current_punter_total -= 1
+    
+    def shout(self, room_in_object):
+        if self.fave_song == room_in_object.song_playing:
+            return "OMG I LOVE THIS SONG!!!"
+        return "WOOP WOOP"
 
 
         

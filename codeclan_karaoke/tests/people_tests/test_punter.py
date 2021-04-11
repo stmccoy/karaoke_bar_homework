@@ -98,5 +98,15 @@ class TestPunter(unittest.TestCase):
         room = self.party_room_1
         self.punter_1.go_home(room)
         self.assertEqual(9, room.current_punter_total)
+    
+    def test_punter_favourite_song_shout(self):
+        room = self.party_room_1
+        room.song_playing = "Hit Me Baby One More Time"
+        self.assertEqual("OMG I LOVE THIS SONG!!!", self.punter_1.shout(room))
+    
+    def test_punter_not_favourite_song_shout(self):
+        room = self.party_room_1
+        room.song_playing = "Gotta Get Thru This"
+        self.assertEqual("WOOP WOOP", self.punter_1.shout(room))
 
 
