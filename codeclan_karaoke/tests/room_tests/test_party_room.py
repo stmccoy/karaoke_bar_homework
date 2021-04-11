@@ -27,6 +27,9 @@ class TestPartyRoom(unittest.TestCase):
     def test_party_room_has_capacity(self):
         self.assertEqual(30, self.party_room_1.capacity)
     
+    def test_party_room_has_current_punter_total(self):
+        self.assertEqual(20, self.party_room_1.current_punter_total)
+    
     def test_party_room_can_play_song(self):
         song = self.song_1
         punter = self.punter_1

@@ -1,5 +1,4 @@
 from classes.rooms.room import Room
-from classes.songs.song import Song
 #class inherits from room class
 
 class PartyRoom(Room):
@@ -10,9 +9,9 @@ class PartyRoom(Room):
         self.genre = genre
         self.song_playing = None
 
-    def play_song(self, song, punter, karaoke_staff, song_fee):
-        if punter.request_song(karaoke_staff, song, song_fee):
-            self.song_playing = song
+    def play_song(self, song_object, punter, karaoke_staff, song_fee):
+        if punter.request_song(karaoke_staff, song_object, song_fee):
+            self.song_playing = song_object
 
 
 
